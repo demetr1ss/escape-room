@@ -5,6 +5,11 @@ import RalewaySemiBoldWoff2 from 'assets/fonts/raleway-semibold.woff2';
 import RalewayBoldWoff2 from 'assets/fonts/raleway-bold.woff2';
 import RalewayExtraBoldWoff2 from 'assets/fonts/raleway-extrabold.woff2';
 import RalewayBlackWoff2 from 'assets/fonts/raleway-black.woff2';
+import { appTheme } from 'components/app/common';
+
+export type ThemeTypeProps = {
+  theme: typeof appTheme
+};
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -72,19 +77,19 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Raleway', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: ${({ theme }) => theme.font.base};
+    font-size: ${({ theme }: ThemeTypeProps) => theme.font.base};
     line-height: 22.5px;
-    color: ${({ theme }) => theme.color.whisper};
+    color: ${({ theme }: ThemeTypeProps) => theme.color.whisper};
     font-feature-settings: 'pnum' on, 'lnum' on;
 
-    background-color: ${({ theme }) => theme.color.nero};
+    background-color: ${({ theme }: ThemeTypeProps) => theme.color.nero};
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   a {
-    color: ${({ theme }) => theme.color.whisper};
+    color: ${({ theme }: ThemeTypeProps) => theme.color.whisper};
     text-decoration: none;
   }
 
@@ -101,9 +106,9 @@ const GlobalStyle = createGlobalStyle`
 
   /* chrome autofill background removal */
   input:-webkit-autofill {
-    box-shadow: inset 0 0 0 1000px ${({ theme }) => theme.color.white};
+    box-shadow: inset 0 0 0 1000px ${({ theme }: ThemeTypeProps) => theme.color.white};
 
-    -webkit-text-fill-color: ${({ theme }) => theme.color.black};
+    -webkit-text-fill-color: ${({ theme }: ThemeTypeProps) => theme.color.black};
   }
 
   /* firefox placeholder \ invalid fix + ios bdrs */

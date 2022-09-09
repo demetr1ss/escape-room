@@ -61,7 +61,7 @@ const TabBtn = styled.button.attrs({ type: 'button' })`
     border-bottom: 2px solid ${({ theme }) => theme.color.tangerine};
   }
 
-  ${({ isActive }) =>
+  ${({ isActive }: {isActive?: boolean}) =>
     isActive &&
     css`
       span {

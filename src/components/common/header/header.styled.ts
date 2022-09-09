@@ -29,6 +29,10 @@ const Logo = styled.a`
   @media (max-width: 1300px) {
     margin-right: auto;
   }
+
+  &:hover {
+    cursor: pointer;;
+  }
 `;
 
 const LogoLink = styled(RouterLink)`
@@ -75,7 +79,7 @@ const Link = styled(RouterLink)`
 
   color: ${({ theme }) => theme.color.whiteSmoke};
 
-  ${({ $isActiveLink }) =>
+  ${({ $isActiveLink }: { $isActiveLink?: boolean }) =>
     $isActiveLink &&
     css`
       color: ${({ theme }) => theme.color.tangerine};

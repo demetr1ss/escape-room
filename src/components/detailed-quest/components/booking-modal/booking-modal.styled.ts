@@ -115,7 +115,7 @@ const BookingInput = styled.input`
   }
 `;
 
-const BookingSubmit = styled(Button)`
+const BookingSubmit = styled(Button).attrs({ type: 'submit' })`
   align-self: center;
   margin-top: 55px;
   margin-bottom: 21px;

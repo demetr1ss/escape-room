@@ -3,15 +3,11 @@ import { MainLayout } from 'components/common/common';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
-import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
+import * as S from './detailed-quest.styled';
 
-const DetailedQuest = () => {
+export default function DetailedQuest(): JSX.Element {
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
-
-  const onBookingBtnClick = () => {
-    setIsBookingModalOpened(true);
-  };
 
   return (
     <MainLayout>
@@ -53,16 +49,14 @@ const DetailedQuest = () => {
               помочь другим, разобраться что произошло и выбраться из комнаты?
             </S.QuestDescription>
 
-            <S.QuestBookingBtn onClick={onBookingBtnClick}>
+            <S.QuestBookingBtn onClick={() => setIsBookingModalOpened(true)}>
               Забронировать
             </S.QuestBookingBtn>
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal />}
+        {isBookingModalOpened && <BookingModal setIsBookingModalOpened={setIsBookingModalOpened}/>}
       </S.Main>
     </MainLayout>
   );
-};
-
-export default DetailedQuest;
+}

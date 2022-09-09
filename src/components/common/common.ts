@@ -1,4 +1,4 @@
-export { Link, Switch, Route, BrowserRouter } from 'react-router-dom';
+export { Link, Routes, Route, BrowserRouter } from 'react-router-dom';
 export { default as Button } from './button/button';
 export { default as Container } from './container/container';
 export { default as Footer } from './footer/footer';
