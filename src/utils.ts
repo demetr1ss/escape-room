@@ -8,6 +8,7 @@ type showNotifyPropsType = {
 const ToastType = {
   Error: 'error',
   Warn: 'warn',
+  Success: 'success'
 } as const;
 
 export const showNotify = (options: showNotifyPropsType): void => {
@@ -21,8 +22,8 @@ export const showNotify = (options: showNotifyPropsType): void => {
         pauseOnHover: false,
       });
       break;
-    case ToastType.Warn:
-      toast.warn(options.message, {
+    case ToastType.Success:
+      toast.success(options.message, {
         toastId: 2,
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2500,

@@ -48,3 +48,14 @@ export const LocationSetting = {
   zoom: 17,
 } as const;
 
+export const ErrorMessage = {
+  Required: 'Поле обязательно к заполнению',
+  PhoneLength: 'телефон в формате Xххххххххх',
+  Pattern: 'Не верный формат',
+  Terms: 'Сначала Вы должны согласиться с условиями',
+  PeopleMinCount: 'Минимум участников:',
+  PeopleMaxCount: 'Максимум участников:',
+} as const;
+
+export const PHONE_LENGTH = 10;
+export const PHONE_REG_EXP = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;

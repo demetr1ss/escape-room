@@ -55,10 +55,14 @@ export const sendOrderPostAction = createAsyncThunk<void, OrderPostType, {
   async (order, {extra: api}) => {
     try {
       await api.post(APIRoute.Orders, order);
+      showNotify({
+        type: 'success',
+        message: 'Ваша заявка успешно отправлена'
+      });
     }
     catch(e) {
       showNotify({
-        type: 'warn',
+        type: 'error',
         message: 'Failed to send a order'
       });
       throw e;

@@ -1,20 +1,21 @@
 /* eslint-disable no-console */
-import * as S from './booking-modal.styled';
-import ClickAwayListener from 'react-click-away-listener';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
+import { ErrorMessage, LoadingStatus, PHONE_LENGTH, PHONE_REG_EXP } from 'const/const';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { useEffect, useState } from 'react';
-import { getPostSendingStatus } from 'store/order-data/selectors';
-import { LoadingStatus } from 'const/const';
-import { sendOrderPostAction } from 'store/api-actions';
+import ClickAwayListener from 'react-click-away-listener';
 import { useForm } from 'react-hook-form';
+import { sendOrderPostAction } from 'store/api-actions';
+import { getPostSendingStatus } from 'store/order-data/selectors';
 import { OrderPostType } from 'types/types';
+import * as S from './booking-modal.styled';
 
 type BookingModalPropsType = {
   setIsBookingModalOpened: (status: boolean) => void;
+  peopleCount: number[];
 }
 
-export default function BookingModal({ setIsBookingModalOpened }: BookingModalPropsType): JSX.Element {
+export default function BookingModal({ setIsBookingModalOpened, peopleCount }: BookingModalPropsType): JSX.Element {
   const dispatch = useAppDispatch();
   const sendingStatus = useAppSelector(getPostSendingStatus);
 
@@ -43,21 +44,21 @@ export default function BookingModal({ setIsBookingModalOpened }: BookingModalPr
   const {
     register,
     handleSubmit,
-    formState: {errors, isValid}
+    formState: { errors, isValid }
   } = useForm<OrderPostType>({
     mode: 'all'
   });
 
   const onSubmit = (order: OrderPostType) => dispatch(sendOrderPostAction(order));
 
-  return(
+  return (
     <S.BlockLayer>
       <ClickAwayListener onClickAway={() => setIsBookingModalOpened(false)}>
         <S.Modal>
           <S.ModalCloseBtn onClick={() => setIsBookingModalOpened(false)}>
             <IconClose width="16" height="16" />
             <S.ModalCloseLabel>
-            Закрыть окно
+              Закрыть окно
             </S.ModalCloseLabel>
           </S.ModalCloseBtn>
           <S.ModalTitle>Оставить заявку</S.ModalTitle>
@@ -74,51 +75,71 @@ export default function BookingModal({ setIsBookingModalOpened }: BookingModalPr
                 id="booking-name"
                 placeholder="Имя"
                 {...register('name', {
-                  required: true
+                  required: ErrorMessage.Required
                 })}
               />
+              <S.InputErrorContainer>
+                <S.InputErrorMessage>
+                  {errors?.name?.message}
+                </S.InputErrorMessage>
+              </S.InputErrorContainer>
             </S.BookingField>
             <S.BookingField>
               <S.BookingLabel htmlFor="booking-phone">
-            Контактный телефон
+                Контактный телефон
               </S.BookingLabel>
               <S.BookingInput
                 type="tel"
                 id="booking-phone"
-                placeholder="Телефон"
+                placeholder="Телефон (без 8-ки)"
                 {...register('phone', {
-                  required: 'Поле обязательно к заполнению!',
+                  required: ErrorMessage.Required,
                   pattern: {
-                    value: /^[0-9]+$/,
-                    message: 'Не верный формат'
+                    value: PHONE_REG_EXP,
+                    message: ErrorMessage.Pattern
                   },
                   minLength: {
-                    value: 10,
-                    message: 'должно быть ровно 10 символов'
+                    value: PHONE_LENGTH,
+                    message: ErrorMessage.PhoneLength
                   },
                   maxLength: {
-                    value: 10,
-                    message: 'должно быть ровно 10 символов'
+                    value: PHONE_LENGTH,
+                    message: ErrorMessage.PhoneLength
                   }
                 })}
               />
-              <div style={{height: 10, color: 'tomato'}}>
-                {errors?.phone?.message}
-              </div>
+              <S.InputErrorContainer>
+                <S.InputErrorMessage>
+                  {errors?.phone?.message}
+                </S.InputErrorMessage>
+              </S.InputErrorContainer>
             </S.BookingField>
             <S.BookingField>
               <S.BookingLabel htmlFor="booking-people">
-            Количество участников
+                Количество участников
               </S.BookingLabel>
               <S.BookingInput
                 type="number"
                 id="booking-people"
                 placeholder="Количество участников"
                 {...register('peopleCount', {
-                  required: true,
-                  valueAsNumber: true
+                  required: ErrorMessage.Required,
+                  valueAsNumber: true,
+                  min: {
+                    value: peopleCount[0],
+                    message: `${ErrorMessage.PeopleMinCount} ${peopleCount[0]}`
+                  },
+                  max: {
+                    value: peopleCount[1],
+                    message: `${ErrorMessage.PeopleMaxCount} ${peopleCount[1]}`
+                  }
                 })}
               />
+              <S.InputErrorContainer>
+                <S.InputErrorMessage>
+                  {errors?.peopleCount?.message}
+                </S.InputErrorMessage>
+              </S.InputErrorContainer>
             </S.BookingField>
             <S.BookingSubmit type="submit" disabled={isFormDisabled || !isValid}>
               {isFormDisabled ? 'Отправляется...' : 'Отправить заявку'}
@@ -128,18 +149,23 @@ export default function BookingModal({ setIsBookingModalOpened }: BookingModalPr
                 type="checkbox"
                 id="booking-legal"
                 {...register('isLegal', {
-                  required: true
+                  required: 'Сначала Вы должны согласиться с условиями'
                 })}
               />
+              <S.InputErrorContainer>
+                <S.InputErrorMessage>
+                  {errors?.isLegal?.message}
+                </S.InputErrorMessage>
+              </S.InputErrorContainer>
               <S.BookingCheckboxLabel
                 className="checkbox-label"
                 htmlFor="booking-legal"
               >
                 <S.BookingCheckboxText>
-              Я согласен с{' '}
+                  Я согласен с{' '}
                   <S.BookingLegalLink href="#">
-                правилами обработки персональных данных и пользовательским
-                соглашением
+                    правилами обработки персональных данных и пользовательским
+                    соглашением
                   </S.BookingLegalLink>
                 </S.BookingCheckboxText>
               </S.BookingCheckboxLabel>
