@@ -3,7 +3,9 @@ import { PropsWithChildren } from 'react';
 
 export default function PageSubtext({ children, ...props }: PropsWithChildren): JSX.Element {
   return (
-    <S.PageSubtext {...props}>{children}</S.PageSubtext>
+    <S.PageSubtext {...props}>
+      {children}
+    </S.PageSubtext>
   );
 }
 

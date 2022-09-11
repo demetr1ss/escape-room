@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Container } from 'components/common/common';
 
-const Main = styled(Container)`
+export const Main = styled(Container)`
   max-width: 1080px;
   margin-top: 120px;
   margin-bottom: 120px;
@@ -29,5 +29,3 @@ const Main = styled(Container)`
     pointer-events: none;
   }
 `;
-
-export { Main };

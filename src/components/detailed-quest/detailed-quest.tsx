@@ -1,52 +1,85 @@
-import { useState } from 'react';
-import { MainLayout } from 'components/common/common';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
+import { MainLayout } from 'components/common/common';
+import LoadingComponent from 'components/loading-component/loading-component';
+import { Levels, LoadingStatus, QuestGenresName } from 'const/const';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchDetailedQuestAction } from 'store/api-actions';
+import { getDetailedQuest, getDetailedQuestLoadedStatus } from 'store/detailed-quest-data/selectors';
 import { BookingModal } from './components/components';
 import * as S from './detailed-quest.styled';
 
 export default function DetailedQuest(): JSX.Element {
+  const params = useParams();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchDetailedQuestAction(`${params.id}`));
+  }, [dispatch, params.id]);
+
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
+
+  const quest = useAppSelector(getDetailedQuest);
+  const questLoadingStatus = useAppSelector(getDetailedQuestLoadedStatus);
+
+  if (
+    questLoadingStatus === LoadingStatus.Idle ||
+    questLoadingStatus === LoadingStatus.Pending ||
+    !quest
+  ) {
+    return (
+      <LoadingComponent />
+    );
+  }
+
+  const {coverImg, title, type, duration, peopleCount, level, description} = quest;
 
   return (
     <MainLayout>
       <S.Main>
         <S.PageImage
-          src="img/cover-maniac.jpg"
-          alt="Квест Маньяк"
+          src={`/${coverImg}`}
+          alt={title}
           width="1366"
           height="768"
         />
         <S.PageContentWrapper>
           <S.PageHeading>
-            <S.PageTitle>Маньяк</S.PageTitle>
-            <S.PageSubtitle>приключения</S.PageSubtitle>
+            <S.PageTitle>
+              {title}
+            </S.PageTitle>
+            <S.PageSubtitle>
+              {QuestGenresName[type]}
+            </S.PageSubtitle>
           </S.PageHeading>
 
           <S.PageDescription>
             <S.Features>
               <S.FeaturesItem>
                 <IconClock width="20" height="20" />
-                <S.FeatureTitle>90 мин</S.FeatureTitle>
+                <S.FeatureTitle>
+                  {`${duration} мин`}
+                </S.FeatureTitle>
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPerson width="19" height="24" />
-                <S.FeatureTitle>3–6 чел</S.FeatureTitle>
+                <S.FeatureTitle>
+                  {`${peopleCount.join('-')} чел`}
+                </S.FeatureTitle>
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPuzzle width="24" height="24" />
-                <S.FeatureTitle>средний</S.FeatureTitle>
+                <S.FeatureTitle>
+                  {Levels[level]}
+                </S.FeatureTitle>
               </S.FeaturesItem>
             </S.Features>
 
             <S.QuestDescription>
-              В комнате с приглушённым светом несколько человек, незнакомых друг
-              с другом, приходят в себя. Никто не помнит, что произошло прошлым
-              вечером. Руки и ноги связаным, но одному из вас получилось
-              освободиться. На стене висит пугающий таймер и запущен отстёт
-              60&nbsp;минут. Сможете ли вы разобраться в стрессовой ситуации,
-              помочь другим, разобраться что произошло и выбраться из комнаты?
+              {description}
             </S.QuestDescription>
 
             <S.QuestBookingBtn onClick={() => setIsBookingModalOpened(true)}>
