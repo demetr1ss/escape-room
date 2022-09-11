@@ -40,3 +40,10 @@ export const Levels: {[key: string]: string} = {
   medium: 'средний',
   easy: 'легкий'
 } as const;
+
+export const LocationSetting = {
+  lat: 59.968306,
+  lng: 30.317605,
+  zoom: 17,
+} as const;
+

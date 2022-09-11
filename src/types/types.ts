@@ -16,3 +16,9 @@ export type QuestType = {
   peopleCount: number[],
   duration: number
 }
+
+export type LocationSettingType = {
+  lat: number,
+  lng: number,
+  zoom: number,
+}

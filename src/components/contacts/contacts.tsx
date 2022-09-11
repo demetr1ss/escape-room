@@ -1,5 +1,5 @@
+import Map from './map/map';
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
-import contactsMap from 'assets/img/contacts-map.jpg';
 import * as S from './contacts.styled';
 
 export default function Contacts(): JSX.Element {
@@ -40,15 +40,7 @@ export default function Contacts(): JSX.Element {
                 </S.ContactLink>
               </S.ContactValue>
             </S.ContactsList>
-
-            <S.ContactsMap>
-              <S.ContactsMapImage
-                src={contactsMap}
-                alt="мы находимся по адресу Санкт-Петербург, Набережная реки Карповка, д 5"
-                width="649"
-                height="336"
-              />
-            </S.ContactsMap>
+            <Map />
           </S.Contacts>
         </S.ContentWrapper>
       </S.Main>

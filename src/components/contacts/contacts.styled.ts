@@ -72,21 +72,6 @@ const ContactAddress = styled.address`
 
 const ContactLink = styled.a``;
 
-const ContactsMap = styled.div`
-  position: relative;
-  display: flex;
-  width: 649px;
-  height: 336px;
-  margin-left: auto;
-`;
-
-const ContactsMapImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-`;
-
 export {
   Main,
   ContentWrapper,
@@ -97,6 +82,4 @@ export {
   ContactValue,
   ContactAddress,
   ContactLink,
-  ContactsMap,
-  ContactsMapImage,
 };
