@@ -11,7 +11,7 @@ export type ThemeTypeProps = {
   theme: typeof appTheme
 };
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Raleway';
     font-style: normal;
@@ -188,5 +188,3 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 `;
-
-export { GlobalStyle };

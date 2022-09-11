@@ -1,5 +1,6 @@
 export const PHONE_LENGTH = 10;
 export const PHONE_REG_EXP = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+export const DEFAULT_FILTER = 'all-quests';
 
 export const AppRoute = {
   Main: '/',
@@ -27,8 +28,6 @@ export const NameSpace = {
   Quests: 'QUESTS',
   Orders: 'ORDERS',
 } as const;
-
-export const DEFAULT_FILTER = 'all-quests';
 
 export const QuestGenresName: {[key: string]: string} = {
   'all-quests': 'Все квесты',

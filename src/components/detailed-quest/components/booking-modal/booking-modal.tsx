@@ -11,7 +11,7 @@ import * as S from './booking-modal.styled';
 
 type BookingModalPropsType = {
   setIsBookingModalOpened: (status: boolean) => void;
-  peopleCount: number[];
+  peopleCount: [number, number];
 }
 
 export default function BookingModal({ setIsBookingModalOpened, peopleCount }: BookingModalPropsType): JSX.Element {

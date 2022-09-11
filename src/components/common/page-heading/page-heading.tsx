@@ -8,4 +8,3 @@ export default function PageHeading({ children, ...props }: PropsWithChildren): 
     </S.PageHeading>
   );
 }
-

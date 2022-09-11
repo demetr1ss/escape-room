@@ -10,4 +10,3 @@ export default function MainLayout({ children }: PropsWithChildren): JSX.Element
     </>
   );
 }
-

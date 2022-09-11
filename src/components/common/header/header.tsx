@@ -1,7 +1,7 @@
+import * as S from './header.styled';
 import logo from 'assets/img/logo.svg';
 import { AppRoute } from 'const/const';
 import { useNavigate, useLocation } from 'react-router-dom';
-import * as S from './header.styled';
 
 export default function Header(): JSX.Element {
   const location = useLocation();

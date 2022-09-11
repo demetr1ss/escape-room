@@ -1,5 +1,5 @@
-import React from 'react';
 import * as S from './button.styled';
+import React from 'react';
 
 type ButtonPropsType = {
   children?: React.ReactNode,
@@ -12,4 +12,3 @@ export default function Button({children, ...props }: ButtonPropsType): JSX.Elem
     </S.Button>
   );
 }
-

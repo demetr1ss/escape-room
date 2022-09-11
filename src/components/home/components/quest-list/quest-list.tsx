@@ -1,10 +1,10 @@
+import * as S from './quests-list.styled';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import { AppRoute, Levels } from 'const/const';
 import { useAppSelector } from 'hooks';
 import { selectFilteredQuests } from 'store/quests-data/selectors';
 import { generatePath } from 'react-router';
-import * as S from './quests-list.styled';
 
 export default function QuestList(): JSX.Element {
   const filteredQuests = useAppSelector(selectFilteredQuests);

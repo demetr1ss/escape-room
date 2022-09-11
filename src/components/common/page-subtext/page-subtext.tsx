@@ -8,4 +8,3 @@ export default function PageSubtext({ children, ...props }: PropsWithChildren): 
     </S.PageSubtext>
   );
 }
-

@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { ReactComponent as InstagramIcon } from 'assets/img/icon-instagram-hover.svg';
 import { ReactComponent as VkIcon } from 'assets/img/icon-vk-hover.svg';
 
-const StyledFooter = styled.footer`
+export const StyledFooter = styled.footer`
   z-index: 5;
   position: fixed;
   bottom: 24px;
   left: 32px;
 `;
 
-const Socials = styled.ul`
+export const Socials = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -21,18 +21,18 @@ const Socials = styled.ul`
   list-style: none;
 `;
 
-const SocialItem = styled.li`
+export const SocialItem = styled.li`
   &:not(:last-of-type) {
     margin-right: 7px;
     margin-bottom: 7px;
   }
 `;
 
-const SocialLink = styled.a`
+export const SocialLink = styled.a`
   display: block;
 `;
 
-const StyledInstagramIcon = styled(InstagramIcon)`
+export const StyledInstagramIcon = styled(InstagramIcon)`
   display: flex;
 
   image {
@@ -45,7 +45,7 @@ const StyledInstagramIcon = styled(InstagramIcon)`
   }
 `;
 
-const StyledVkIcon = styled(VkIcon)`
+export const StyledVkIcon = styled(VkIcon)`
   display: flex;
 
   circle {
@@ -67,14 +67,4 @@ const StyledVkIcon = styled(VkIcon)`
   }
 `;
 
-const HiddenText = styled.span.attrs({ className: 'visually-hidden' })``;
-
-export {
-  StyledFooter,
-  Socials,
-  SocialItem,
-  SocialLink,
-  StyledInstagramIcon,
-  StyledVkIcon,
-  HiddenText,
-};
+export const HiddenText = styled.span.attrs({ className: 'visually-hidden' })``;

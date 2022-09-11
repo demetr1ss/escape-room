@@ -1,8 +1,9 @@
+import * as S from './detailed-quest.styled';
+import LoadingComponent from 'components/loading-component/loading-component';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import { MainLayout } from 'components/common/common';
-import LoadingComponent from 'components/loading-component/loading-component';
 import { Levels, LoadingStatus, QuestGenresName } from 'const/const';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { useEffect, useState } from 'react';
@@ -10,7 +11,6 @@ import { useParams } from 'react-router-dom';
 import { fetchDetailedQuestAction } from 'store/api-actions';
 import { getDetailedQuest, getDetailedQuestLoadedStatus } from 'store/detailed-quest-data/selectors';
 import { BookingModal } from './components/components';
-import * as S from './detailed-quest.styled';
 
 export default function DetailedQuest(): JSX.Element {
   const params = useParams();

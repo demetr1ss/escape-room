@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { Button } from 'components/common/common';
 
-const Main = styled.main`
+export const Main = styled.main`
   max-width: 556px;
   margin-top: 149px;
   margin-bottom: 149px;
   margin-left: 43.92vw;
 `;
 
-const PageImage = styled.img`
+export const PageImage = styled.img`
   z-index: 1;
   position: fixed;
   top: 0;
@@ -19,18 +19,18 @@ const PageImage = styled.img`
   object-fit: cover;
 `;
 
-const PageContentWrapper = styled.div`
+export const PageContentWrapper = styled.div`
   z-index: 2;
   position: relative;
 `;
 
-const PageHeading = styled.div`
+export const PageHeading = styled.div`
   display: flex;
   flex-direction: column-reverse;
   margin-bottom: 29px;
 `;
 
-const PageTitle = styled.h1`
+export const PageTitle = styled.h1`
   margin: 0;
   padding: 0;
 
@@ -43,7 +43,7 @@ const PageTitle = styled.h1`
   overflow-wrap: anywhere;
 `;
 
-const PageSubtitle = styled.p`
+export const PageSubtitle = styled.p`
   margin: 0;
   margin-bottom: 10px;
   padding: 0;
@@ -54,11 +54,11 @@ const PageSubtitle = styled.p`
   color: ${({ theme }) => theme.color.tangerine};
 `;
 
-const PageDescription = styled.div`
+export const PageDescription = styled.div`
   padding-left: 32px;
 `;
 
-const Features = styled.ul`
+export const Features = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
@@ -68,7 +68,7 @@ const Features = styled.ul`
   list-style: none;
 `;
 
-const FeaturesItem = styled.li`
+export const FeaturesItem = styled.li`
   display: flex;
   align-items: center;
   min-height: 36px;
@@ -88,7 +88,7 @@ const FeaturesItem = styled.li`
   }
 `;
 
-const FeatureTitle = styled.span`
+export const FeatureTitle = styled.span`
   margin-left: 9px;
 
   font-size: ${({ theme }) => theme.font.semibase};
@@ -97,7 +97,7 @@ const FeatureTitle = styled.span`
   color: ${({ theme }) => theme.color.whisper2};
 `;
 
-const QuestDescription = styled.p`
+export const QuestDescription = styled.p`
   margin: 0;
   margin-bottom: 45px;
   padding: 0;
@@ -107,21 +107,6 @@ const QuestDescription = styled.p`
   letter-spacing: 0.013em;
 `;
 
-const QuestBookingBtn = styled(Button).attrs({ type: 'button' })`
+export const QuestBookingBtn = styled(Button).attrs({ type: 'button' })`
   margin-left: 2px;
 `;
-
-export {
-  Main,
-  PageImage,
-  PageContentWrapper,
-  PageHeading,
-  PageTitle,
-  PageSubtitle,
-  PageDescription,
-  Features,
-  FeaturesItem,
-  FeatureTitle,
-  QuestDescription,
-  QuestBookingBtn,
-};

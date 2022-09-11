@@ -30,4 +30,3 @@ export const detailedQuestData = createSlice({
         state.questLoadingStatus = LoadingStatus.Rejected;
       });
   }});
-

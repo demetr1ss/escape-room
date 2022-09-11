@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Container, Link as RouterLink } from 'components/common/common';
 
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   z-index: 5;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   background-color: rgba(26, 26, 26, 0.9);
 `;
 
-const HeaderWrapper = styled(Container)`
+export const HeaderWrapper = styled(Container)`
   display: flex;
   align-items: flex-start;
   min-height: 74px;
@@ -23,7 +23,7 @@ const HeaderWrapper = styled(Container)`
   padding-left: 32px;
 `;
 
-const Logo = styled.a`
+export const Logo = styled.a`
   margin-right: 250px;
 
   @media (max-width: 1300px) {
@@ -35,7 +35,7 @@ const Logo = styled.a`
   }
 `;
 
-const LogoLink = styled(RouterLink)`
+export const LogoLink = styled(RouterLink)`
   margin-right: 250px;
 
   @media (max-width: 1300px) {
@@ -43,11 +43,11 @@ const LogoLink = styled(RouterLink)`
   }
 `;
 
-const Navigation = styled.nav``;
+export const Navigation = styled.nav``;
 
-const Image = styled.img``;
+export const Image = styled.img``;
 
-const Links = styled.ul`
+export const Links = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -61,14 +61,14 @@ const Links = styled.ul`
   list-style: none;
 `;
 
-const LinkItem = styled.li`
+export const LinkItem = styled.li`
   &:not(:last-child) {
     margin-right: 49px;
     margin-bottom: 10px;
   }
 `;
 
-const Link = styled(RouterLink)`
+export const Link = styled(RouterLink)`
   display: block;
   max-width: 100px;
   font-size: ${({ theme }) => theme.font.semibase};
@@ -91,7 +91,7 @@ const Link = styled(RouterLink)`
   }
 `;
 
-const Phone = styled.a`
+export const Phone = styled.a`
   margin-top: 17px;
   margin-left: auto;
   font-size: ${({ theme }) => theme.font.semibase};
@@ -107,16 +107,3 @@ const Phone = styled.a`
     color: ${({ theme }) => theme.color.tangerine};
   }
 `;
-
-export {
-  StyledHeader,
-  HeaderWrapper,
-  Logo,
-  LogoLink,
-  Navigation,
-  Image,
-  Links,
-  LinkItem,
-  Link,
-  Phone,
-};

@@ -8,4 +8,3 @@ export default function PageTitle({ children, ...props }: PropsWithChildren): JS
     </S.PageTitle>
   );
 }
-

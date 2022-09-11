@@ -1,6 +1,6 @@
+import * as S from './contacts.styled';
 import Map from './components/map/map';
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
-import * as S from './contacts.styled';
 
 export default function Contacts(): JSX.Element {
   return (

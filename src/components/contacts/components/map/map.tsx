@@ -1,13 +1,13 @@
-import useMap from 'hooks/useMap';
-import Pin from 'assets/img/icon-blip.svg';
 import * as S from './map.styled';
+import useMap from 'hooks/useMap';
+import iconPin from 'assets/img/icon-blip.svg';
 import { Icon, LayerGroup, Marker } from 'leaflet';
 import { useEffect, useRef } from 'react';
 import { LocationSetting } from 'const/const';
 import 'leaflet/dist/leaflet.css';
 
 const icon = new Icon({
-  iconUrl: Pin,
+  iconUrl: iconPin,
   iconAnchor: [28, 70]
 });
 
@@ -18,6 +18,7 @@ export default function Map()
 
   useEffect(() => {
     const { lat, lng } = LocationSetting;
+
     if (map) {
       const layerGroup = new LayerGroup();
       const marker = new Marker({

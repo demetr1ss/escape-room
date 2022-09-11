@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { PageHeading as Heading } from 'components/common/common';
 import contactsBg from 'assets/img/contacts-bg.jpg';
+import { PageHeading as Heading } from 'components/common/common';
 
-const Main = styled.main`
+export const Main = styled.main`
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -15,7 +15,7 @@ const Main = styled.main`
   background-size: cover;
 `;
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   max-width: 1080px;
   flex-shrink: 0;
   width: 100%;
@@ -24,7 +24,7 @@ const ContentWrapper = styled.div`
   margin-bottom: 40px;
 `;
 
-const PageHeading = styled(Heading)`
+export const PageHeading = styled(Heading)`
   margin-bottom: 46px;
   padding-bottom: 29px;
   padding-left: 6px;
@@ -32,11 +32,11 @@ const PageHeading = styled(Heading)`
   border-bottom: 0.5px solid rgba(230, 230, 230, 0.25);
 `;
 
-const Contacts = styled.div`
+export const Contacts = styled.div`
   display: flex;
 `;
 
-const ContactsList = styled.dl`
+export const ContactsList = styled.dl`
   width: 233px;
   margin: 0;
   margin-left: 30px;
@@ -44,7 +44,7 @@ const ContactsList = styled.dl`
   padding-top: 14px;
 `;
 
-const ContactTitle = styled.dt`
+export const ContactTitle = styled.dt`
   margin-bottom: 5px;
 
   font-size: ${({ theme }) => theme.font.semibase};
@@ -55,7 +55,7 @@ const ContactTitle = styled.dt`
   color: ${({ theme }) => theme.color.whisper2};
 `;
 
-const ContactValue = styled.dd`
+export const ContactValue = styled.dd`
   margin: 0;
   padding: 0;
 
@@ -66,20 +66,8 @@ const ContactValue = styled.dd`
   }
 `;
 
-const ContactAddress = styled.address`
+export const ContactAddress = styled.address`
   font-style: normal;
 `;
 
-const ContactLink = styled.a``;
-
-export {
-  Main,
-  ContentWrapper,
-  PageHeading,
-  Contacts,
-  ContactsList,
-  ContactTitle,
-  ContactValue,
-  ContactAddress,
-  ContactLink,
-};
+export const ContactLink = styled.a``;

@@ -13,7 +13,7 @@ export type QuestType = {
   coverImg: string,
   type: string,
   level: string,
-  peopleCount: number[],
+  peopleCount: [number, number],
   duration: number
 }
 
