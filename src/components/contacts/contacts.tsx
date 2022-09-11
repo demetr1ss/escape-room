@@ -1,4 +1,4 @@
-import Map from './map/map';
+import Map from './components/map/map';
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
 import * as S from './contacts.styled';
 

@@ -88,7 +88,11 @@ export default function DetailedQuest(): JSX.Element {
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal setIsBookingModalOpened={setIsBookingModalOpened} peopleCount={peopleCount}/>}
+        {isBookingModalOpened &&
+         <BookingModal
+           setIsBookingModalOpened={setIsBookingModalOpened}
+           peopleCount={peopleCount}
+         />}
       </S.Main>
     </MainLayout>
   );

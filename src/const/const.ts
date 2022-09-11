@@ -1,3 +1,6 @@
+export const PHONE_LENGTH = 10;
+export const PHONE_REG_EXP = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
 export const AppRoute = {
   Main: '/',
   Contacts: '/contacts',
@@ -56,6 +59,3 @@ export const ErrorMessage = {
   PeopleMinCount: 'Минимум участников:',
   PeopleMaxCount: 'Максимум участников:',
 } as const;
-
-export const PHONE_LENGTH = 10;
-export const PHONE_REG_EXP = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;

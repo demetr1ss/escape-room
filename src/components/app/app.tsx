@@ -27,7 +27,7 @@ export default function App(): JSX.Element {
   }
 
   if (questsLoadingStatus === LoadingStatus.Rejected) {
-    return <p>Ведутся технические работы</p>;
+    return <NotFound />;
   }
 
   return (

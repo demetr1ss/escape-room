@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {useState, useLayoutEffect} from 'react';
 import {Router} from 'react-router-dom';
 import type {BrowserHistory} from 'history';
@@ -13,7 +12,7 @@ export default function HistoryRouter({
   basename,
   children,
   history,
-}: HistoryRouterPropsType) {
+}: HistoryRouterPropsType): JSX.Element {
   const [state, setState] = useState({
     action: history.action,
     location: history.location,

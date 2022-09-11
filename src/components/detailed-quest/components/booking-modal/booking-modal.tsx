@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 import { ErrorMessage, LoadingStatus, PHONE_LENGTH, PHONE_REG_EXP } from 'const/const';
 import { useAppDispatch, useAppSelector } from 'hooks';
