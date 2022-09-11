@@ -25,14 +25,15 @@ export const NameSpace = {
   Orders: 'ORDERS',
 } as const;
 
+export const DEFAULT_FILTER = 'all-quests';
 
 export const QuestGenresName: {[key: string]: string} = {
-  AllQuests: 'Все квесты',
-  Adventures: 'Приключения',
-  Horrors: 'Ужасы',
-  Mystic: 'Мистика',
-  Detective: 'Детектив',
-  Scifi: 'Sci-fi',
+  'all-quests': 'Все квесты',
+  'adventures': 'Приключения',
+  'horror': 'Ужасы',
+  'mystic': 'Мистика',
+  'detective': 'Детектив',
+  'sci-fi': 'Sci-fi',
 } as const;
 
 export const Levels: {[key: string]: string} = {

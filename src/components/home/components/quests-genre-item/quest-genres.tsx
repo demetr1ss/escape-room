@@ -6,24 +6,26 @@ import { ReactComponent as IconMystic } from 'assets/img/icon-mystic.svg';
 import { ReactComponent as IconDetective } from 'assets/img/icon-detective.svg';
 import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import * as S from './quests-genres.styled';
+import { useAppDispatch } from 'hooks';
+import { changeGenre } from 'store/app-process/app-process';
 
 type QuestGenresPropsType = {
-  activeGenre?: string;
+  activeGenre: string;
 }
 
 const createIconGenre = (genre: string) => {
   switch(genre){
-    case 'AllQuests':
+    case 'all-quests':
       return <IconAllQuests />;
-    case 'Adventures':
+    case 'adventures':
       return <IconAdventures />;
-    case 'Horrors':
+    case 'horror':
       return <IconHorrors />;
-    case 'Mystic':
+    case 'mystic':
       return <IconMystic />;
-    case 'Detective':
+    case 'detective':
       return <IconDetective />;
-    case 'Scifi':
+    case 'sci-fi':
       return <IconScifi />;
     default:
       throw new Error(`${genre} dosn't exist`);
@@ -31,16 +33,23 @@ const createIconGenre = (genre: string) => {
 };
 
 export default function QuestGenres({activeGenre}: QuestGenresPropsType): JSX.Element {
+  const dispatch = useAppDispatch();
+
   return (
     <S.Tabs>
       {Object.keys(QuestGenresName).map((genre) => {
         const isActive = activeGenre === genre;
 
         return (
-          <S.TabItem key={genre}>
+          <S.TabItem key={genre} onClick={() => {
+            dispatch(changeGenre(genre));
+          }}
+          >
             <S.TabBtn isActive={isActive}>
               {createIconGenre(genre)}
-              <S.TabTitle>{QuestGenresName[genre]}</S.TabTitle>
+              <S.TabTitle>
+                {QuestGenresName[genre]}
+              </S.TabTitle>
             </S.TabBtn>
           </S.TabItem>
         );}
