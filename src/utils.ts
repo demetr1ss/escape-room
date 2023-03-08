@@ -7,7 +7,6 @@ type showNotifyPropsType = {
 
 const ToastType = {
   Error: 'error',
-  Warn: 'warn',
   Success: 'success'
 } as const;
 
