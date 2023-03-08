@@ -1,5 +1,8 @@
 {
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
